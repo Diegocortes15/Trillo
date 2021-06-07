@@ -72,10 +72,15 @@ body {
 
 .sidebar {
   background-color: var(--color-grey-dark-1);
-  flex: 0 0 18%; }
+  flex: 0 0 18%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
 
 .hotel-view {
+  background-color: #fff;
   background-color: olivedrab;
+  height: 80rem;
   flex: 1; }
 
 .logo {
@@ -93,7 +98,7 @@ body {
     color: inherit;
     background-color: var(--color-grey-light-2);
     border: none;
-    padding: 0.7rem 2rem;
+    padding: 0.7rem 4rem 0.7rem 2rem;
     border-radius: 10rem;
     width: 90%;
     transition: all 0.2s;
@@ -109,11 +114,14 @@ body {
     background-color: var(--color-grey-light-3); }
   .search__button {
     border: none;
-    background-color: var(--color-grey-light-2); }
+    background-color: var(--color-grey-light-2);
+    transition: transform .2s ease-out; }
+    .search__button:hover {
+      cursor: pointer; }
     .search__button:focus {
       outline: none; }
     .search__button:active {
-      transform: translateY(2rem); }
+      transform: translateY(0.2rem); }
   .search__icon {
     height: 2rem;
     width: 2rem;
@@ -154,3 +162,16 @@ body {
     height: 3.75rem;
     border-radius: 50%;
     margin-right: 1rem; }
+
+.side-nav__item {
+  list-style: none; }
+
+.side-nav__icon {
+  width: 1.75rem;
+  height: 1.75rem; }
+
+.legal {
+  font-size: 1.2rem;
+  color: var(--color-grey-light-4);
+  text-align: center;
+  padding: 2.5rem; }

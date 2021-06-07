@@ -20,7 +20,7 @@
     color: inherit;
     background-color: var(--color-grey-light-2);
     border: none;
-    padding: 0.7rem 2rem;
+    padding: 0.7rem 4rem 0.7rem 2rem;
     border-radius: 10rem;
     width: 90%;
     transition: all 0.2s;
@@ -45,13 +45,18 @@
   &__button {
     border: none;
     background-color: var(--color-grey-light-2);
+    transition: transform .2s ease-out;
+
+    &:hover{
+      cursor: pointer;
+    }
 
     &:focus {
       outline: none;
     }
 
     &:active {
-      transform: translateY(2rem);
+      transform: translateY(.2rem);
     }
   }
 
@@ -112,4 +117,31 @@
     border-radius: 50%;
     margin-right: 1rem;
   }
+}
+
+
+/////////////////////////////////////////////////////////
+// SIDE NAVIGATION
+
+.side-nav{
+  &__item{
+    list-style: none;
+  }
+
+  &__link{}
+
+  &__icon{
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+}
+
+
+/////////////////////////////////////////////////////////
+// LEGAL TEXT
+.legal{
+  font-size: 1.2rem;
+  color: var(--color-grey-light-4);
+  text-align: center;
+  padding: 2.5rem;
 }

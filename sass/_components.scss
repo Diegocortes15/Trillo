@@ -45,9 +45,9 @@
   &__button {
     border: none;
     background-color: var(--color-grey-light-2);
-    transition: transform .2s ease-out;
+    transition: transform 0.2s ease-out;
 
-    &:hover{
+    &:hover {
       cursor: pointer;
     }
 
@@ -56,7 +56,7 @@
     }
 
     &:active {
-      transform: translateY(.2rem);
+      transform: translateY(0.2rem);
     }
   }
 
@@ -119,27 +119,70 @@
   }
 }
 
-
 /////////////////////////////////////////////////////////
 // SIDE NAVIGATION
 
-.side-nav{
-  &__item{
-    list-style: none;
+.side-nav {
+  font-size: 1.4rem;
+  list-style: none;
+  margin-top: 3.5rem;
+
+  &__item {
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
   }
 
-  &__link{}
+  &__item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0.3rem;
+    background-color: var(--color-primary);
+    transform: scaleY(0);
+    transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.1s;
+  }
 
-  &__icon{
+  &__item:hover::before,
+  &__item--active::before {
+    transform: scaleY(1);
+    width: 100%;
+  }
+
+  &__item:active::before {
+    background-color: var(--color-primary-light);
+  }
+
+  &__link {
+    color: var(--color-grey-light-1);
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 1.5rem 3rem;
+    position: relative;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+  }
+
+  &__link:hover {
+  }
+
+  &__icon {
     width: 1.75rem;
     height: 1.75rem;
+    margin-right: 2rem;
+    fill: currentColor;
   }
 }
 
-
 /////////////////////////////////////////////////////////
 // LEGAL TEXT
-.legal{
+.legal {
   font-size: 1.2rem;
   color: var(--color-grey-light-4);
   text-align: center;

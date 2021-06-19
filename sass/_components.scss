@@ -80,8 +80,10 @@
     align-self: stretch;
     display: flex;
     align-items: center;
+    background-color: #fff;
+    position: relative;
 
-    & > * {
+    & > *:nth-child(-n + 3) {
         padding: 0 2rem;
         cursor: pointer;
         height: 100%;
@@ -89,7 +91,7 @@
         align-items: center;
     }
 
-    & > *:hover {
+    & > *:hover:nth-child(-n + 3) {
         background-color: var(--color-grey-light-2);
     }
 
@@ -122,6 +124,146 @@
         height: 3.75rem;
         border-radius: 50%;
         margin-right: 1rem;
+    }
+
+    &__menu {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.25);
+        transform: translateY(100%);
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.2s ease-in-out;
+
+        border-radius: 0.8rem;
+
+        &:hover {
+            max-height: 27rem;
+        }
+
+        &-icon-box {
+            display: flex;
+            align-items: center;
+            padding: 1.9rem;
+            text-decoration: none;
+
+            &:hover {
+                background-color: var(--color-grey-dark-1);
+                color: #fff;
+            }
+
+            &:active {
+                background-color: var(--color-grey-dark-1);
+                color: #fff;
+            }
+        }
+
+        &-logo {
+            width: 2.25rem;
+            margin-right: 1.9rem;
+        }
+
+        &-icon {
+            height: 2.25rem;
+            width: 2.25rem;
+            fill: var(--color-grey-dark-2);
+            margin-right: 1.9rem;
+        }
+
+        &-icon-box:hover &-icon {
+            fill: #fff;
+        }
+    }
+
+    &__user:hover + &__menu {
+        max-height: 27rem;
+    }
+
+    &__chat {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 130%;
+
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.25);
+        transform: translateY(100%);
+        transition: all 0.2s ease-in-out;
+        max-height: 0;
+
+        overflow: hidden;
+
+        border-radius: 0.8rem;
+
+        &-messages {
+            overflow-y: scroll;
+            height: 30rem;
+        }
+
+        &-box {
+            display: flex;
+            padding: 1.5rem;
+            max-width: 100%;
+            align-items: center;
+        }
+
+        &-image {
+            height: 3.75rem;
+            width: 3.75rem;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        &-text {
+            flex-basis: 60%;
+        }
+
+        &-name {
+            font-weight: 600;
+        }
+
+        &-date {
+            text-align: end;
+            width: 5rem;
+            margin-left: 1rem;
+            padding-left: 1rem;
+            border-left: var(--line);
+            flex-basis: 15%;
+            font-weight: 600;
+        }
+
+        &-days {
+            color: var(--color-primary);
+        }
+
+        &-view-all {
+            border-top: var(--line);
+            text-align: center;
+            color: var(--color-primary);
+            padding: 1rem 0;
+            text-decoration: none;
+            font-weight: 600;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        &:hover {
+            max-height: 32.5rem;
+        }
+    }
+
+    &__icon-chat:hover ~ &__chat {
+        max-height: 32.5rem;
     }
 }
 
@@ -241,6 +383,15 @@
     @media only screen and (max-width: $bp-medium) {
         display: none;
     }
+
+    &__responsive {
+        display: none;
+
+        @media only screen and (max-width: $bp-medium) {
+            background-color: var(--color-grey-dark-1);
+            display: block;
+        }
+    }
 }
 
 /////////////////////////////////////////////////////////
@@ -249,9 +400,44 @@
 .gallery {
     display: flex;
 
+    &:hover &__item:not(:hover) {
+        transform: scale(1.05);
+    }
+
+    &__item {
+        position: relative;
+        transition: all 0.3s;
+        overflow: hidden;
+        z-index: 10;
+
+        &:hover {
+            transform: scale(1.1);
+            z-index: 20;
+        }
+    }
+
     &__photo {
         width: 100%;
         display: block;
+    }
+
+    &__caption {
+        text-align: center;
+        font-size: 1.6rem;
+        padding: 0.5rem 0;
+        font-weight: 300;
+        background-color: #eb2f64e1;
+        color: #fff;
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        transform: translateY(100%);
+        transition: all 0.3s;
+    }
+
+    &__item:hover &__caption {
+        transform: translateY(0);
     }
 }
 
@@ -434,15 +620,18 @@
         margin-right: 0.7rem;
 
         //Older browsers
-        // background-image: url(../img/chevron-thin-right.svg);
-        // background-size: cover;
+        background-image: url(../img/chevron-thin-right.svg);
+        background-size: cover;
 
         //Newer browsers - masks
-        background-color: var(--color-primary);
-        -webkit-mask-image: url(../img/chevron-thin-right.svg);
-        -webkit-mask-size: cover;
-        mask-image: url(../img/chevron-thin-right.svg);
-        mask-size: cover;
+        @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+            background-color: var(--color-primary);
+            -webkit-mask-image: url(../img/chevron-thin-right.svg);
+            -webkit-mask-size: cover;
+            mask-image: url(../img/chevron-thin-right.svg);
+            mask-size: cover;
+            background-image: none;
+        }
     }
 }
 

@@ -28,7 +28,7 @@ Grey dark 3: #999
   --color-grey-dark-3: #999;
   --shadow-dark: rgba(0, 0, 0, 0.3);
   --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.06);
-  --line: 1px solid var(--color-grey-light-2); }
+  --line: 0.1rem solid var(--color-grey-light-2); }
 
 * {
   margin: 0;
@@ -55,6 +55,18 @@ body {
   background-repeat: no-repeat;
   min-height: 100vh; }
 
+::-webkit-scrollbar {
+  width: 1rem;
+  box-shadow: inset 0 0 1rem var(--shadow-dark); }
+
+::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background-color: var(--color-primary); }
+
+::-webkit-scrollbar-thumb:hover {
+  border-radius: 1rem;
+  background-color: var(--color-primary-light); }
+
 .container {
   max-width: 120rem;
   margin: 8rem auto;
@@ -74,7 +86,9 @@ body {
   border-bottom: var(--line);
   display: flex;
   justify-content: space-between;
-  align-items: center; }
+  align-items: center;
+  position: relative;
+  z-index: 50; }
   @media only screen and (max-width: 31.25em) {
     .header {
       flex-wrap: wrap;
@@ -184,14 +198,16 @@ body {
 .user-nav {
   align-self: stretch;
   display: flex;
-  align-items: center; }
-  .user-nav > * {
+  align-items: center;
+  background-color: #fff;
+  position: relative; }
+  .user-nav > *:nth-child(-n + 3) {
     padding: 0 2rem;
     cursor: pointer;
     height: 100%;
     display: flex;
     align-items: center; }
-  .user-nav > *:hover {
+  .user-nav > *:hover:nth-child(-n + 3) {
     background-color: var(--color-grey-light-2); }
   .user-nav__icon-box {
     position: relative; }
@@ -216,6 +232,99 @@ body {
     height: 3.75rem;
     border-radius: 50%;
     margin-right: 1rem; }
+  .user-nav__menu {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.25);
+    transform: translateY(100%);
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+    border-radius: 0.8rem; }
+    .user-nav__menu:hover {
+      max-height: 27rem; }
+    .user-nav__menu-icon-box {
+      display: flex;
+      align-items: center;
+      padding: 1.9rem;
+      text-decoration: none; }
+      .user-nav__menu-icon-box:hover {
+        background-color: var(--color-grey-dark-1);
+        color: #fff; }
+      .user-nav__menu-icon-box:active {
+        background-color: var(--color-grey-dark-1);
+        color: #fff; }
+    .user-nav__menu-logo {
+      width: 2.25rem;
+      margin-right: 1.9rem; }
+    .user-nav__menu-icon {
+      height: 2.25rem;
+      width: 2.25rem;
+      fill: var(--color-grey-dark-2);
+      margin-right: 1.9rem; }
+    .user-nav__menu-icon-box:hover .user-nav__menu-icon {
+      fill: #fff; }
+  .user-nav__user:hover + .user-nav__menu {
+    max-height: 27rem; }
+  .user-nav__chat {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 130%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.25);
+    transform: translateY(100%);
+    transition: all 0.2s ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+    border-radius: 0.8rem; }
+    .user-nav__chat-messages {
+      overflow-y: scroll;
+      height: 30rem; }
+    .user-nav__chat-box {
+      display: flex;
+      padding: 1.5rem;
+      max-width: 100%;
+      align-items: center; }
+    .user-nav__chat-image {
+      height: 3.75rem;
+      width: 3.75rem;
+      border-radius: 50%;
+      margin-right: 1rem; }
+    .user-nav__chat-text {
+      flex-basis: 60%; }
+    .user-nav__chat-name {
+      font-weight: 600; }
+    .user-nav__chat-date {
+      text-align: end;
+      width: 5rem;
+      margin-left: 1rem;
+      padding-left: 1rem;
+      border-left: var(--line);
+      flex-basis: 15%;
+      font-weight: 600; }
+    .user-nav__chat-days {
+      color: var(--color-primary); }
+    .user-nav__chat-view-all {
+      border-top: var(--line);
+      text-align: center;
+      color: var(--color-primary);
+      padding: 1rem 0;
+      text-decoration: none;
+      font-weight: 600; }
+      .user-nav__chat-view-all:hover {
+        text-decoration: underline; }
+    .user-nav__chat:hover {
+      max-height: 32.5rem; }
+  .user-nav__icon-chat:hover ~ .user-nav__chat {
+    max-height: 32.5rem; }
 
 .side-nav {
   font-size: 1.4rem;
@@ -295,12 +404,43 @@ body {
   @media only screen and (max-width: 56.25em) {
     .legal {
       display: none; } }
+  .legal__responsive {
+    display: none; }
+    @media only screen and (max-width: 56.25em) {
+      .legal__responsive {
+        background-color: var(--color-grey-dark-1);
+        display: block; } }
 
 .gallery {
   display: flex; }
+  .gallery:hover .gallery__item:not(:hover) {
+    transform: scale(1.05); }
+  .gallery__item {
+    position: relative;
+    transition: all 0.3s;
+    overflow: hidden;
+    z-index: 10; }
+    .gallery__item:hover {
+      transform: scale(1.1);
+      z-index: 20; }
   .gallery__photo {
     width: 100%;
     display: block; }
+  .gallery__caption {
+    text-align: center;
+    font-size: 1.6rem;
+    padding: 0.5rem 0;
+    font-weight: 300;
+    background-color: #eb2f64e1;
+    color: #fff;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    transform: translateY(100%);
+    transition: all 0.3s; }
+  .gallery__item:hover .gallery__caption {
+    transform: translateY(0); }
 
 .overview {
   display: flex;
@@ -422,11 +562,16 @@ body {
     height: 1rem;
     width: 1rem;
     margin-right: 0.7rem;
-    background-color: var(--color-primary);
-    -webkit-mask-image: url(../img/chevron-thin-right.svg);
-    -webkit-mask-size: cover;
-    mask-image: url(../img/chevron-thin-right.svg);
-    mask-size: cover; }
+    background-image: url(../img/chevron-thin-right.svg);
+    background-size: cover; }
+    @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+      .list__item::before {
+        background-color: var(--color-primary);
+        -webkit-mask-image: url(../img/chevron-thin-right.svg);
+        -webkit-mask-size: cover;
+        mask-image: url(../img/chevron-thin-right.svg);
+        mask-size: cover;
+        background-image: none; } }
 
 .recommend {
   font-size: 1.3rem;

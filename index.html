@@ -34,7 +34,7 @@
                     </svg>
                     <span class="user-nav__notification">7</span>
                 </div>
-                <div class="user-nav__icon-box">
+                <div class="user-nav__icon-box user-nav__icon-chat">
                     <svg class="user-nav__icon">
                         <use xlink:href="img/sprite.svg#icon-chat"></use>
                     </svg>
@@ -43,6 +43,113 @@
                 <div class="user-nav__user">
                     <img src="img/user-0.jpg" alt="User photo" class="user-nav__user-photo" />
                     <span class="user-nav__user-name">Diego</span>
+                </div>
+                <div class="user-nav__menu">
+                    <a class="user-nav__menu-icon-box" href="#">
+                        <img src="img/logo.png" alt="trillo logo" class="user-nav__menu-logo" />
+                        <p class="user-nav__menu-option">Manage your Trillo account</p>
+                    </a>
+                    <a class="user-nav__menu-icon-box" href="#">
+                        <svg class="user-nav__menu-icon">
+                            <use xlink:href="img/sprite.svg#icon-wallet"></use>
+                        </svg>
+                        <p class="user-nav__menu-option">Payment methods</p>
+                    </a>
+                    <a class="user-nav__menu-icon-box" href="#">
+                        <svg class="user-nav__menu-icon">
+                            <use xlink:href="img/sprite.svg#icon-location-pin"></use>
+                        </svg>
+                        <p class="user-nav__menu-option">Addresses and more</p>
+                    </a>
+                    <a class="user-nav__menu-icon-box" href="#">
+                        <svg class="user-nav__menu-icon">
+                            <use xlink:href="img/sprite.svg#icon-exit"></use>
+                        </svg>
+                        <p class="user-nav__menu-option">Logout</p>
+                    </a>
+                </div>
+
+                <div class="user-nav__chat">
+                    <div class="user-nav__chat-messages">
+                        <div class="user-nav__chat-box">
+                            <img src="img/user-1.jpg" alt="" class="user-nav__chat-image" />
+                            <p class="user-nav__chat-text">
+                                <span class="user-nav__chat-name">Nick</span>
+                                approved your request to become friends.
+                            </p>
+                            <div class="user-nav__chat-date">
+                                <p class="user-nav__chat-hour">5:43</p>
+                                <p class="user-nav__chat-days">1d</p>
+                            </div>
+                        </div>
+                        <div class="user-nav__chat-box">
+                            <img src="img/user.jpg" alt="" class="user-nav__chat-image" />
+                            <p class="user-nav__chat-text">
+                                <span class="user-nav__chat-name">Nick</span>
+                                approved your request to become friends.
+                            </p>
+                            <div class="user-nav__chat-date">
+                                <p class="user-nav__chat-hour">16:26</p>
+                                <p class="user-nav__chat-days">1d</p>
+                            </div>
+                        </div>
+                        <div class="user-nav__chat-box">
+                            <img src="img/user-2.jpg" alt="" class="user-nav__chat-image" />
+                            <p class="user-nav__chat-text">
+                                <span class="user-nav__chat-name">Nick</span>
+                                approved your request to become friends.
+                            </p>
+                            <div class="user-nav__chat-date">
+                                <p class="user-nav__chat-hour">10:45</p>
+                                <p class="user-nav__chat-days">3d</p>
+                            </div>
+                        </div>
+                        <div class="user-nav__chat-box">
+                            <img src="img/user-3.jpg" alt="" class="user-nav__chat-image" />
+                            <p class="user-nav__chat-text">
+                                <span class="user-nav__chat-name">Nick</span>
+                                approved your request to become friends.
+                            </p>
+                            <div class="user-nav__chat-date">
+                                <p class="user-nav__chat-hour">5:43</p>
+                                <p class="user-nav__chat-days">1w</p>
+                            </div>
+                        </div>
+                        <div class="user-nav__chat-box">
+                            <img src="img/user-4.jpg" alt="" class="user-nav__chat-image" />
+                            <p class="user-nav__chat-text">
+                                <span class="user-nav__chat-name">Nick</span>
+                                approved your request to become friends.
+                            </p>
+                            <div class="user-nav__chat-date">
+                                <p class="user-nav__chat-hour">16:26</p>
+                                <p class="user-nav__chat-days">1w</p>
+                            </div>
+                        </div>
+                        <div class="user-nav__chat-box">
+                            <img src="img/user-5.jpg" alt="" class="user-nav__chat-image" />
+                            <p class="user-nav__chat-text">
+                                <span class="user-nav__chat-name">Nick</span>
+                                approved your request to become friends.
+                            </p>
+                            <div class="user-nav__chat-date">
+                                <p class="user-nav__chat-hour">10:45</p>
+                                <p class="user-nav__chat-days">1d</p>
+                            </div>
+                        </div>
+                        <div class="user-nav__chat-box">
+                            <img src="img/user-6.jpg" alt="" class="user-nav__chat-image" />
+                            <p class="user-nav__chat-text">
+                                <span class="user-nav__chat-name">Nick</span>
+                                approved your request to become friends.
+                            </p>
+                            <div class="user-nav__chat-date">
+                                <p class="user-nav__chat-hour">5:43</p>
+                                <p class="user-nav__chat-days">1d</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="user-nav__chat-view-all">See All</a href="#">
                 </div>
             </nav>
         </header>
@@ -89,12 +196,15 @@
                 <div class="gallery">
                     <figure class="gallery__item">
                         <img src="img/hotel-1.jpg" alt="Photo of hotel 1" class="gallery__photo" />
+                        <figcaption class="gallery__caption">Cartagena</figcaption>
                     </figure>
                     <figure class="gallery__item">
                         <img src="img/hotel-2.jpg" alt="Photo of hotel 2" class="gallery__photo" />
+                        <figcaption class="gallery__caption">San Andres</figcaption>
                     </figure>
                     <figure class="gallery__item">
                         <img src="img/hotel-3.jpg" alt="Photo of hotel 3" class="gallery__photo" />
+                        <figcaption class="gallery__caption">Grecia</figcaption>
                     </figure>
                 </div>
 
@@ -207,5 +317,6 @@
                 </div>
             </main>
         </div>
+        <footer class="legal legal__responsive">&copy; 2021 by trillo. All rights reserved.</footer>
     </div>
 </html>

@@ -14,6 +14,12 @@
     align-items: center;
     justify-content: center;
 
+    @media only screen and (max-width: $bp-smallest) {
+        order: 1;
+        flex: 0 0 100%;
+        background-color: var(--color-grey-light-2);
+    }
+
     &__input {
         font-family: inherit;
         font-size: inherit;
@@ -127,11 +133,25 @@
     list-style: none;
     margin-top: 3.5rem;
 
+    @media only screen and (max-width: $bp-medium) {
+        display: flex;
+        margin: 0;
+        justify-content: space-between;
+    }
+
     &__item {
         position: relative;
 
         &:not(:last-child) {
             margin-bottom: 0.5rem;
+
+            @media only screen and (max-width: $bp-medium) {
+                margin: 0;
+            }
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            flex: 1 0 auto;
         }
     }
 
@@ -146,6 +166,16 @@
         display: flex;
         align-items: center;
         transition: background-color 0.3s;
+
+        @media only screen and (max-width: $bp-medium) {
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            flex-direction: column;
+            padding: 1.5rem 0.5rem;
+        }
 
         &:hover,
         &:focus {
@@ -184,6 +214,18 @@
         height: 1.75rem;
         margin-right: 2rem;
         fill: currentColor;
+
+        @media only screen and (max-width: $bp-small) {
+            margin-right: 0;
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+
+    & span {
+        @media only screen and (max-width: $bp-small) {
+            display: none;
+        }
     }
 }
 
@@ -195,6 +237,10 @@
     color: var(--color-grey-light-4);
     text-align: center;
     padding: 2.5rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        display: none;
+    }
 }
 
 /////////////////////////////////////////////////////////
@@ -217,12 +263,29 @@
     align-items: center;
     border-bottom: 1px solid var(--color-grey-light-2);
 
+    @media only screen and (max-width: $bp-smallest) {
+        flex-wrap: wrap;
+        & > * {
+            flex: 0 0 50%;
+            justify-content: center;
+        }
+    }
+
     &__heading {
         font-size: 2.25rem;
         font-weight: 300;
         text-transform: uppercase;
         letter-spacing: 1px;
         padding: 1.5rem 3rem;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+            padding: 1.25rem 2rem;
+        }
+
+        @media only screen and (max-width: $bp-smallest) {
+            text-align: center;
+        }
     }
 
     &__stars {
@@ -258,17 +321,34 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        @media only screen and (max-width: $bp-small) {
+            padding: 0 3rem;
+        }
+
+        @media only screen and (max-width: $bp-smallest) {
+            padding: 1rem;
+            margin: 0;
+        }
     }
 
     &__rating-average {
         font-size: 2.25rem;
         font-weight: 300;
         margin-bottom: -0.5rem;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+        }
     }
 
     &__rating-count {
         font-size: 1rem;
         text-transform: uppercase;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 0.9rem;
+        }
     }
 }
 
@@ -380,6 +460,10 @@
         margin-right: auto;
     }
 
+    &__friends {
+        display: flex;
+    }
+
     &__photo {
         box-sizing: content-box;
         height: 4rem;
@@ -390,7 +474,7 @@
         position: relative;
 
         &:not(:last-of-type) {
-            margin-right: -1.5rem;
+            margin-right: -2rem;
         }
 
         &:hover {
@@ -415,6 +499,11 @@
     margin-bottom: 3.5rem;
     position: relative;
     overflow: hidden;
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2rem;
+        margin-bottom: 3rem;
+    }
 
     &__text {
         margin-bottom: 2rem;
@@ -476,11 +565,19 @@
     padding: 3.5rem 0;
     text-align: center;
 
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2.5rem 3rem;
+    }
+
     &__book-now {
         font-size: 2rem;
         font-weight: 300;
         text-transform: uppercase;
         margin-bottom: 2.5rem;
+
+        @media only screen and (max-width: $bp-medium) {
+            font-size: 1.8rem;
+        }
     }
 }
 
